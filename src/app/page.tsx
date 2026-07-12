@@ -4,8 +4,8 @@ import InsightFlow from "./components/insight-flow/InsightFlow";
 import { Navbar } from "./components/layout";
 
 
-export default function 
-HomePage() {
+export default function
+  HomePage() {
   return (
     <>
       <Navbar />
