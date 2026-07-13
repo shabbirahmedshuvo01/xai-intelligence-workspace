@@ -1,8 +1,29 @@
 "use client";
 
-import SignatureCanvas from "./SignatureCanvas";
+import dynamic from "next/dynamic";
+import { useInView } from "react-intersection-observer";
+
+const SignatureCanvas = dynamic(
+  () => import("./SignatureCanvas"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-105 w-full items-center justify-center rounded-[40px] bg-[#050816] sm:h-130 lg:h-175">
+        <div className="h-16 w-16 animate-spin rounded-full border-4 border-cyan-500 border-t-transparent" />
+      </div>
+    ),
+  }
+);
+
+
 
 export default function SignatureSection() {
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "300px",
+  });
+
   return (
     <section
       id="signature"
@@ -37,8 +58,11 @@ export default function SignatureSection() {
 
         {/* Canvas */}
         <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-linear-to-b from-white/5 to-white/2 backdrop-blur-xl">
-          <div className="h-105 sm:h-130 lg:h-175">
-            <SignatureCanvas />
+          <div
+            ref={ref}
+            className="h-120 sm:h-130 lg:h-150"
+          >
+            {inView ? <SignatureCanvas /> : null}
           </div>
 
           {/* Bottom Stats */}

@@ -8,6 +8,8 @@ type Particle = {
   color: string;
 };
 
+const PARTICLE_COUNT = 72;
+
 function generateParticles(count: number): Particle[] {
   return Array.from({ length: count }, () => ({
     position: [
@@ -21,15 +23,15 @@ function generateParticles(count: number): Particle[] {
 
 export default function FloatingParticles() {
   const particles = useMemo(
-    () => generateParticles(120),
+    () => generateParticles(PARTICLE_COUNT),
     []
   );
 
   return (
-    <Instances limit={120}>
-      <sphereGeometry args={[0.025, 8, 8]} />
+    <Instances limit={PARTICLE_COUNT}>
+      <sphereGeometry args={[0.02, 6, 6]} />
 
-      <meshBasicMaterial />
+      <meshBasicMaterial toneMapped={false} />
 
       {particles.map((particle, index) => (
         <Instance

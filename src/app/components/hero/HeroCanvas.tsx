@@ -5,8 +5,20 @@ import Scene from "./scene/Scene";
 
 export default function HeroCanvas() {
   return (
-    <div className="relative h-150 w-full hidden md:block">
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+    <div className="relative hidden h-150 w-full md:block">
+      <Canvas
+        dpr={[1, 1.5]}
+        frameloop="always"
+        gl={{
+          antialias: false,
+          alpha: true,
+          powerPreference: "high-performance",
+        }}
+        camera={{
+          position: [0, 0, 5],
+          fov: 50,
+        }}
+      >
         <Scene />
       </Canvas>
     </div>

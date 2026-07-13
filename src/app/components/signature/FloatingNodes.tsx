@@ -17,6 +17,8 @@ const COLORS = [
   "#A855F7",
 ];
 
+const NODE_COUNT = 50;
+
 function generateNodes(count: number): NodeData[] {
   return Array.from({ length: count }, () => ({
     position: [
@@ -27,36 +29,38 @@ function generateNodes(count: number): NodeData[] {
 
     color: COLORS[Math.floor(Math.random() * COLORS.length)],
 
-    size: 0.015 + Math.random() * 0.03,
+    size: 0.015 + Math.random() * 0.02,
 
-    speed: 0.5 + Math.random() * 1.5,
+    speed: 0.5 + Math.random(),
   }));
 }
 
 export default function FloatingNodes() {
   const groupRef = useRef<THREE.Group>(null);
 
-  // Runs ONLY once
-  const [nodes] = useState(() => generateNodes(90));
+  const [nodes] = useState(() => generateNodes(NODE_COUNT));
 
   useFrame(({ clock }) => {
-    if (!groupRef.current) return;
+    const group = groupRef.current;
+    if (!group) return;
 
     const t = clock.elapsedTime;
+    const children = group.children;
 
-    groupRef.current.children.forEach((child, index) => {
-      const node = nodes[index];
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+      const node = nodes[i];
 
       child.position.y =
         node.position[1] +
-        Math.sin(t * node.speed + index) * 0.08;
+        Math.sin(t * node.speed + i) * 0.06;
 
       child.position.x =
         node.position[0] +
-        Math.cos(t * node.speed + index) * 0.05;
+        Math.cos(t * node.speed + i) * 0.04;
 
-      child.rotation.y += 0.01;
-    });
+      child.rotation.y += 0.006;
+    }
   });
 
   return (
@@ -66,12 +70,13 @@ export default function FloatingNodes() {
           key={index}
           position={node.position}
         >
-          <sphereGeometry args={[node.size, 12, 12]} />
+          <sphereGeometry args={[node.size, 8, 8]} />
 
           <meshBasicMaterial
             color={node.color}
             transparent
-            opacity={0.8}
+            opacity={0.75}
+            toneMapped={false}
           />
         </mesh>
       ))}

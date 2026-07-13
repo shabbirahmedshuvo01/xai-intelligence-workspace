@@ -25,18 +25,18 @@ export default function AIOrb() {
         <icosahedronGeometry args={[1.05, 32]} />
 
         <MeshTransmissionMaterial
-          thickness={0.8}
-          roughness={0}
-          transmission={1}
-          ior={1.4}
-          chromaticAberration={0.08}
-          anisotropy={0.2}
-          distortion={0.18}
-          distortionScale={0.35}
-          temporalDistortion={0.12}
-          backside
-          samples={12}
-          resolution={512}
+          thickness={0.4}
+          roughness={0.08}
+          transmission={0.95}
+          ior={1.25}
+          chromaticAberration={0.015}
+          anisotropy={0}
+          distortion={0.05}
+          distortionScale={0.08}
+          temporalDistortion={0.02}
+          backside={false}
+          samples={4}
+          resolution={128}
           color="#7C3AED"
         />
       </mesh>
