@@ -1,37 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# XAI Intelligence Workspace
+
+A modern landing page prototype for an AI-powered intelligence platform. The project showcases how business data can be transformed into actionable insights through an interactive user experience built with Next.js, React Three Fiber, and TypeScript.
+
+## Live Demo
+
+https://xai-intelligence-workspace-six.vercel.app/
+
+---
+
+## Overview
+
+This project was built as a frontend challenge to demonstrate modern UI development, responsive layouts, interactive 3D visuals, reusable component architecture, and performance optimization.
+
+The goal was to create a clean product experience that explains how an AI workspace can organize business data, generate insights, and help teams make better decisions.
+
+---
+
+## Features
+
+- Responsive landing page
+- Interactive 3D visualizations using React Three Fiber
+- Modern dashboard preview
+- AI workflow timeline
+- Capability showcase
+- Documentation section
+- Responsive navigation
+- Call-to-action section
+- Performance optimized
+- SEO friendly
+
+---
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- React Three Fiber
+- Drei
+- Framer Motion
+- Recharts
+- Lucide Icons
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository
+
+```bash
+git clone https://github.com/shabbirahmedshuvo01/xai-intelligence-workspace.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Production Build
 
-To learn more about Next.js, take a look at the following resources:
+Build the application
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run production
 
-## Deploy on Vercel
+```bash
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# xai-intelligence-workspace
+## Project Structure
+
+```
+src/
+│
+├── app/
+│   ├── components/
+│   ├── constants/
+│   ├── lib/
+│   ├── types/
+│   └── page.tsx
+│
+├── public/
+└── ...
+```
+
+---
+
+## Performance
+
+The project focuses on performance and accessibility.
+
+Latest Lighthouse scores:
+
+### Mobile
+
+- Performance: 97
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+
+### Desktop
+
+- Performance: 82–98 (varies depending on Lighthouse environment)
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+
+---
+
+## Design Decisions
+
+Some implementation choices made during development:
+
+- Component-based architecture for maintainability.
+- Dynamic imports for heavy 3D sections to improve initial loading.
+- Responsive layouts across mobile, tablet, and desktop.
+- Reusable UI components.
+- Optimized rendering for React Three Fiber scenes.
+- Clean folder organization for scalability.
+
+---
+
+## Future Improvements
+
+Some ideas if this project were to continue:
+
+- Dark/Light theme toggle
+- Interactive dashboard pages
+- Authentication flow
+- API integration
+- Animated page transitions
+- CMS integration
+
+---
+
+## Author
+
+Shabbir Ahmed Shuvo
+
+Portfolio:
+https://shabbirahmedshuvo01.github.io/
+
+LinkedIn:
+https://www.linkedin.com/in/shabbir-ahmed-shuvo/
+
+GitHub:
+https://github.com/shabbirahmedshuvo01
