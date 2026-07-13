@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Instance, Instances } from "@react-three/drei";
+import { useMemo } from "react";
 
 type Particle = {
   position: [number, number, number];
@@ -13,23 +14,30 @@ function generateParticles(count: number): Particle[] {
       (Math.random() - 0.5) * 8,
       (Math.random() - 0.5) * 8,
       (Math.random() - 0.5) * 8,
-    ] as [number, number, number],
+    ],
     color: Math.random() > 0.5 ? "#22D3EE" : "#A855F7",
   }));
 }
 
 export default function FloatingParticles() {
-  // Lazy initializer: runs exactly once, on mount, not on every render.
-  const [particles] = useState(() => generateParticles(120));
+  const particles = useMemo(
+    () => generateParticles(120),
+    []
+  );
 
   return (
-    <>
+    <Instances limit={120}>
+      <sphereGeometry args={[0.025, 8, 8]} />
+
+      <meshBasicMaterial />
+
       {particles.map((particle, index) => (
-        <mesh key={index} position={particle.position}>
-          <sphereGeometry args={[0.025]} />
-          <meshBasicMaterial color={particle.color} />
-        </mesh>
+        <Instance
+          key={index}
+          position={particle.position}
+          color={particle.color}
+        />
       ))}
-    </>
+    </Instances>
   );
 }
