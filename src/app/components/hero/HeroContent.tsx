@@ -4,14 +4,14 @@ import HeroBadge from "./HeroBadge";
 
 export default function HeroContent() {
   return (
-    <div className="max-w-2xl">
+    <div className="md:max-w-2xl max-w-[320px] p-2">
       <HeroBadge />
 
-      <h1 className="mt-8 text-5xl font-bold leading-tight tracking-tight text-white lg:text-7xl">
+      <h1 className="mt-8 md:text-5xl font-bold leading-tight tracking-tight text-white lg:text-7xl text-3xl">
         {HERO_CONTENT.title}
       </h1>
 
-      <p className="mt-6 max-w-xl text-lg leading-8 text-slate-400">
+      <p className="mt-6 md:max-w-xl text-lg leading-8 text-slate-400">
         {HERO_CONTENT.description}
       </p>
 

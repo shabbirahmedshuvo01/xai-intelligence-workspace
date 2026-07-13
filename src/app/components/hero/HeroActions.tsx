@@ -2,7 +2,7 @@ import { HERO_CONTENT } from "@/constants/hero";
 
 export default function HeroActions() {
   return (
-    <div className="mt-8 flex flex-wrap items-center gap-4">
+    <div className="mt-8 flex flex-wrap md:items-center gap-4 flex-col items-start md:flex-row">
       <button className="rounded-xl bg-violet-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-violet-500">
         {HERO_CONTENT.primaryButton}
       </button>

@@ -23,7 +23,7 @@ export default function InsightFlow() {
             How Xai Works
           </span>
 
-          <h2 className="mt-6 text-5xl font-bold tracking-tight text-white">
+          <h2 className="mt-6 md:text-5xl text-3xl font-bold tracking-tight text-white">
             From Raw Data to
             <span className="block bg-linear-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
               Intelligent Decisions
