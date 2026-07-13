@@ -76,6 +76,7 @@ export default function Footer() {
                 (Icon, index) => (
                   <button
                     key={index}
+                    aria-label={`Social Icon ${index + 1}`}
                     className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white/60 transition-all duration-300 hover:border-cyan-400/30 hover:bg-cyan-500/10 hover:text-cyan-300"
                   >
                     <Icon size={20} />
