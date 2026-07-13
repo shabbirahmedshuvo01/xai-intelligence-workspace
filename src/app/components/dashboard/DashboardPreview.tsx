@@ -7,37 +7,45 @@ export default function DashboardPreview() {
   return (
     <section
       id="platform"
-      className="relative mx-auto max-w-7xl px-6 py-32"
+      className="relative overflow-hidden py-16 lg:py-32"
     >
-      {/* Section Heading */}
-      <div className="mb-16 text-center">
-        <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300">
-          Platform Preview
-        </span>
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_65%)]" />
 
-        <h2 className="mt-6 text-5xl font-bold text-white">
-          Intelligence Workspace
-        </h2>
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Heading */}
+        <div className="mx-auto mb-20 max-w-3xl text-center">
+          <span className="inline-flex rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300">
+            Platform Preview
+          </span>
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/60">
-          A unified workspace where AI organizes data, monitors business
-          activity, and delivers actionable insights in real time.
-        </p>
-      </div>
+          <h2 className="mt-6 font-bold tracking-tight text-white text-3xl sm:text-4xl lg:text-5xl">
+            Intelligence Workspace
+          </h2>
 
-      {/* Dashboard */}
-      <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/3 backdrop-blur-xl">
-        <div className="grid min-h-180 lg:grid-cols-[260px_1fr]">
-          {/* Left Sidebar */}
-          <Sidebar />
+          <p className="mt-6 text-lg leading-8 text-white/60">
+            A unified workspace where AI organizes business data,
+            uncovers hidden patterns, and delivers actionable
+            intelligence in real time.
+          </p>
+        </div>
 
-          {/* Right Content */}
-          <div className="space-y-8 p-8">
-            <Metrics />
+        {/* Dashboard */}
+        <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/3 shadow-[0_20px_80px_rgba(0,0,0,.45)] backdrop-blur-xl">
+          <div className="grid lg:grid-cols-[280px_1fr]">
+            {/* Sidebar */}
+            <div className="hidden lg:block">
+              <Sidebar />
+            </div>
 
-            <Charts />
+            {/* Main Content */}
+            <div className="space-y-6 p-4 sm:p-6 lg:p-8">
+              <Metrics />
 
-            <Table />
+              <Charts />
+
+              <Table />
+            </div>
           </div>
         </div>
       </div>

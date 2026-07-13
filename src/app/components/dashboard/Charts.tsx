@@ -10,7 +10,7 @@ import {
   YAxis,
 } from "recharts";
 
-const data = [
+const chartData = [
   { day: "Mon", insights: 24 },
   { day: "Tue", insights: 38 },
   { day: "Wed", insights: 44 },
@@ -22,26 +22,46 @@ const data = [
 
 export default function Charts() {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/3 p-6">
-      <div className="mb-8 flex items-center justify-between">
+    <section className="rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:p-6 max-w-75 sm:max-w-full">
+      {/* Header */}
+      <div className="flex flex-col gap-4 border-b border-white/10 pb-5 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
             Analytics
-          </p>
+          </span>
 
-          <h3 className="mt-2 text-2xl font-semibold text-white">
+          <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
             Weekly Intelligence
           </h3>
+
+          <p className="mt-2 max-w-xl text-sm leading-6 text-white/50">
+            AI-generated insights collected over the last 7 days.
+          </p>
         </div>
 
-        <div className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300">
-          +28%
+        <div className="w-full rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-5 py-3 text-center md:w-auto">
+          <p className="text-xs uppercase tracking-wider text-emerald-400">
+            Growth
+          </p>
+
+          <h4 className="mt-1 text-2xl font-bold text-white">
+            +28%
+          </h4>
         </div>
       </div>
 
-      <div className="h-80">
+      {/* Chart */}
+      <div className="mt-6 h-56 sm:h-64 lg:h-80 xl:h-96">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data}>
+          <AreaChart
+            data={chartData}
+            margin={{
+              top: 10,
+              right: 10,
+              left: -20,
+              bottom: 0,
+            }}
+          >
             <defs>
               <linearGradient
                 id="insightGradient"
@@ -50,35 +70,54 @@ export default function Charts() {
                 x2="0"
                 y2="1"
               >
-                <stop offset="0%" stopColor="#22D3EE" stopOpacity={0.45} />
-
-                <stop offset="100%" stopColor="#22D3EE" stopOpacity={0} />
+                <stop
+                  offset="0%"
+                  stopColor="#22D3EE"
+                  stopOpacity={0.45}
+                />
+                <stop
+                  offset="100%"
+                  stopColor="#22D3EE"
+                  stopOpacity={0}
+                />
               </linearGradient>
             </defs>
 
             <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="rgba(255,255,255,0.08)"
+              stroke="rgba(255,255,255,.06)"
+              strokeDasharray="4 4"
+              vertical={false}
             />
 
             <XAxis
               dataKey="day"
-              tick={{ fill: "#94A3B8", fontSize: 12 }}
-              axisLine={false}
               tickLine={false}
+              axisLine={false}
+              tick={{
+                fill: "#94A3B8",
+                fontSize: 11,
+              }}
             />
 
             <YAxis
-              tick={{ fill: "#94A3B8", fontSize: 12 }}
-              axisLine={false}
               tickLine={false}
+              axisLine={false}
+              width={28}
+              tick={{
+                fill: "#94A3B8",
+                fontSize: 11,
+              }}
             />
 
             <Tooltip
+              cursor={{
+                stroke: "#22D3EE",
+                strokeOpacity: 0.2,
+              }}
               contentStyle={{
-                background: "#111827",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "16px",
+                background: "#0F172A",
+                border: "1px solid rgba(255,255,255,.08)",
+                borderRadius: "14px",
                 color: "#fff",
               }}
             />
@@ -89,11 +128,50 @@ export default function Charts() {
               stroke="#22D3EE"
               strokeWidth={3}
               fill="url(#insightGradient)"
-              animationDuration={1500}
+              animationDuration={1400}
+              activeDot={{
+                r: 5,
+                stroke: "#22D3EE",
+                strokeWidth: 2,
+                fill: "#030712",
+              }}
             />
           </AreaChart>
         </ResponsiveContainer>
       </div>
-    </div>
+
+      {/* Footer Stats */}
+      <div className="mt-6 grid grid-cols-1 gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
+        <div>
+          <p className="text-xs uppercase tracking-wider text-white/40">
+            Highest Day
+          </p>
+
+          <h4 className="mt-2 text-lg font-semibold text-white sm:text-xl">
+            Sunday
+          </h4>
+        </div>
+
+        <div>
+          <p className="text-xs uppercase tracking-wider text-white/40">
+            Peak Insights
+          </p>
+
+          <h4 className="mt-2 text-lg font-semibold text-white sm:text-xl">
+            96
+          </h4>
+        </div>
+
+        <div>
+          <p className="text-xs uppercase tracking-wider text-white/40">
+            Weekly Growth
+          </p>
+
+          <h4 className="mt-2 text-lg font-semibold text-emerald-400 sm:text-xl">
+            +28%
+          </h4>
+        </div>
+      </div>
+    </section>
   );
 }
